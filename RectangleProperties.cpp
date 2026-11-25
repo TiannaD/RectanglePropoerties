@@ -4,25 +4,43 @@ using namespace std;
 
 //This program..
 
-double getInput();
-double calculate(double length, double width);
-void displayResult(double perimeter, double area);
+void getLengthWidth(double& length, double& width);
+double calcPerimeter(double length, double width);
+double calcArea(double length, double width);
+void displayProperties(double perimeter, double area);
 
 int main() {
 
-	cout << "Enter rectangle's length and width: " << endl;
-	
 	double length;
 	double width;
 
-	cin >> length >> width;
-
-	cout << "Length: " << length << endl << "Width: " << width << endl;
-
-	double perimeter = 2 * (length + width);
-	double area = length * width;
-
-	cout << "Perimeter: " << perimeter << endl << "Area: " << area << endl;
+	getLengthWidth(length, width);
+	calcPerimeter(length, width);
+	calcArea(length, width);
+	displayProperties((calcPerimeter)(length,width), (calcArea)(length, width));
 
 	return 0;
+}
+
+void getLengthWidth(double& length, double& width) {
+
+	cout << "Enter the length and width of the rectangle: " << endl;
+	cin >> length >> width;
+}
+
+double calcPerimeter(double length, double width) {
+
+	double perimeter = 2 * (length + width);
+	return perimeter;
+}
+
+double calcArea(double length, double width) {
+
+	double area = length * width;
+	return area;
+}
+
+void displayProperties(double perimeter, double area) {
+
+	cout << "Perimeter: " << perimeter << endl << "Area: " << area << endl;
 }
